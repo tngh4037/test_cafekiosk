@@ -1,0 +1,50 @@
+spring:
+  profiles:
+    default: local # 프로파일을 별도로 지정하지 않으면 default 로 local 로 지정하겠다.
+
+  datasource:
+    url: jdbc:h2:mem:~/cafeKioskApplication
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true # (spring boot 2.5 부터 추가된 기능) Hibernate 초기화 이후 data.sql 실행
+
+  h2:
+    console:
+      enabled: true # http://localhost:8080/h2-console
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: never
