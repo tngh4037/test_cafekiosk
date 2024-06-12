@@ -1,5 +1,6 @@
 package sample.cafekiosk.unit;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
 import sample.cafekiosk.unit.beverage.Latte;
@@ -23,7 +24,9 @@ class CafeKioskTest {
     }
 
     @Test
-    void add() {
+    // @DisplayName("음료 1개 추가 테스트")
+    @DisplayName("음료 1개를 추가하면 주문 목록에 담긴다.")
+    void 음료_1개_추가_테스트() {
         CafeKiosk cafeKiosk = new CafeKiosk();
         cafeKiosk.add(new Americano());
 
