@@ -101,7 +101,6 @@ class ProductRepositoryTest {
                         Tuple.tuple("001", "아메리카노", ProductSellingStatus.SELLING),
                         Tuple.tuple("002", "카페라떼", ProductSellingStatus.HOLD)
                 );
-    
     }
 
 }
