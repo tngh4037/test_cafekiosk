@@ -6,13 +6,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
+import sample.cafekiosk.spring.config.JpaAuditingConfig;
 
 import java.util.List;
 
 @ActiveProfiles("test") // test 프로파일로 설정값이 적욛되도록 설정
 // @SpringBootTest // 스프링에서 통합 테스트를 위해 제공하는 애노테이션 ( 테스트를 실행할 때, 스프링 서버를 띄워서 테스트할 수 있게된다. )
 @DataJpaTest // 스프링 서버를 띄워서 테스트 할 수 있다. 단, @DataJpaTest 는 @SpringBootTest 보다는 가볍다. ( JPA 관련된 빈들만 주입을 해줘서 서버를 띄워준다. 따라서 @SpringBootTest 에 비해서는 속도가 빠르다. ) => 그런데 박우빈님은 @DataJpaTest 보다는 @SpringBootTest 를 더 선호한다고 한다.
+@Import(JpaAuditingConfig.class)
 class ProductRepositoryTest {
 
     @Autowired
