@@ -161,7 +161,8 @@ class ProductControllerTest {
 
         // given
         List<ProductResponse> result = List.of();
-        Mockito.when(productService.getSellingProducts()).thenReturn(List.of());
+
+        Mockito.when(productService.getSellingProducts()).thenReturn(result);
 
         // when & then
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/products/selling")

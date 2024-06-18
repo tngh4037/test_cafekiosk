@@ -31,10 +31,12 @@ class OrderControllerTest {
     @DisplayName("신규 주문을 등록한다.")
     @Test
     public void createOrder() throws Exception {
+        // given
         OrderCreateRequest request = OrderCreateRequest.builder()
                 .productNumbers(List.of("001"))
                 .build();
 
+        // when & then
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/orders/new")
                         .content(objectMapper.writeValueAsString(request))
                         .contentType(MediaType.APPLICATION_JSON))
