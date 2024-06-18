@@ -21,7 +21,13 @@ public class MailService {
                     .toEmail(toEmail)
                     .subject(subject)
                     .content(content)
-                    .build());
+                    .build()
+            );
+
+            mailSendClient.a();
+            mailSendClient.b();
+            mailSendClient.c();
+
             return true;
         }
 
