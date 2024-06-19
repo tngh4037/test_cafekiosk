@@ -8,15 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
+import sample.cafekiosk.spring.IntegrationTestSupport;
 import sample.cafekiosk.spring.config.JpaAuditingConfig;
 
 import java.util.List;
 
-@ActiveProfiles("test") // test 프로파일로 설정값이 적욛되도록 설정
-// @SpringBootTest // 스프링에서 통합 테스트를 위해 제공하는 애노테이션 ( 테스트를 실행할 때, 스프링 서버를 띄워서 테스트할 수 있게된다. )
-@DataJpaTest // 스프링 서버를 띄워서 테스트 할 수 있다. 단, @DataJpaTest 는 @SpringBootTest 보다는 가볍다. ( JPA 관련된 빈들만 주입을 해줘서 서버를 띄워준다. 따라서 @SpringBootTest 에 비해서는 속도가 빠르다. ) => 그런데 박우빈님은 @DataJpaTest 보다는 @SpringBootTest 를 더 선호한다고 한다.
-@Import(JpaAuditingConfig.class)
-class ProductRepositoryTest {
+// 참고) IntegrationTestSupport 로 리포지토리 계층도 통합테스트로 했다.
+// : 박우빈 님 - @DataJpaTest 는 JPA 관련 빈들만 올려서 빠르게 테스트할 수 있다. 그런데 @DataJpaTest 를 사용하는 것이 특별한 장점이 있지않다면, 서비스 테스트(@SpringBootTest를 사용한 통합테스트)하면서 리포지토리 테스트도 같이 하는게 더 낫다고 판단한다. ( @DataJpaTest 를 위해 서버가 굳이 또 뜨는 시간이 아까움 )
+// : 물론 꼭 이렇게 할 필요는 없다. @DataJpaTest 가 쓰고싶다면, 리포지토리 계층을 위한 테스트 상위 서포트 클래스를 만들어서 상속받아서 테스트해도된다.
+// : 여기서는 박우빈님은 환경 통합시에는 IntegrationTestSupport 를 사용했다. (따라서 @Transactional 도 추가)
+@Transactional
+
+// @ActiveProfiles("test") // test 프로파일로 설정값이 적욛되도록 설정
+// // @SpringBootTest // 스프링에서 통합 테스트를 위해 제공하는 애노테이션 ( 테스트를 실행할 때, 스프링 서버를 띄워서 테스트할 수 있게된다. )
+// @DataJpaTest // 스프링 서버를 띄워서 테스트 할 수 있다. 단, @DataJpaTest 는 @SpringBootTest 보다는 가볍다. ( JPA 관련된 빈들만 주입을 해줘서 서버를 띄워준다. 따라서 @SpringBootTest 에 비해서는 속도가 빠르다. ) => 그런데 박우빈님은 @DataJpaTest 보다는 @SpringBootTest 를 더 선호한다고 한다.
+// @Import(JpaAuditingConfig.class)
+class ProductRepositoryTest extends IntegrationTestSupport {
 
     @Autowired
     private ProductRepository productRepository;

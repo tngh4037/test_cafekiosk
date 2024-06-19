@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import sample.cafekiosk.spring.ControllerTestSupport;
 import sample.cafekiosk.spring.api.controller.product.dto.request.ProductCreateRequest;
 import sample.cafekiosk.spring.api.service.product.ProductService;
 import sample.cafekiosk.spring.api.service.product.response.ProductResponse;
@@ -22,18 +23,18 @@ import java.util.List;
 
 // 서비스 레이어 하위로는 다 mocking 처리를 한다. -> mocking 처리를 도와주는 테스트 프레임워크: MockMvc
 // 그리고 MockMvc 를 사용하려면 @WebMvcTest 라는 애가 필요하다. ( @SpringBootTest 는 전체 빈 컨텍스트를 다 띄우는 어노테이션이라면, @WebMvcTest 는 컨트롤러 관련된 빈들만 올릴 수 있는 가벼운 테스트 어노테이션 이라고 생각하자. )
-@WebMvcTest(controllers = ProductController.class) // 테스트 하고자 하는 컨트롤러를 명시해주면 된다.
-class ProductControllerTest {
+// @WebMvcTest(controllers = ProductController.class) // 테스트 하고자 하는 컨트롤러를 명시해주면 된다.
+class ProductControllerTest extends ControllerTestSupport {
 
-    @Autowired
-    private MockMvc mockMvc;
+    //@Autowired
+    //private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper; // objectMapper : (json <-> object) 간 직렬화 / 역직렬화를 도와주는 친구
+    //@Autowired
+    //private ObjectMapper objectMapper; // objectMapper : (json <-> object) 간 직렬화 / 역직렬화를 도와주는 친구
 
     // @Mock, @MockBean 은 mockito 라는 라이브러리의 애노테이션이다. ( mockito 라는 라이브러리는 스프링부트 스타터 테스트를 사용하는 경우, 자동으로 포함되어 있다. )
-    @MockBean // @MockBean 은 컨테이너에 mockito 로 만든 Mock 객체를 넣어주는 역할을 한다. ( ProductService 는 이미 빈으로 관리되고 있다. 빈에 적용하면, ProductService 대신 ProductService Mock 객체를 대신 컨테이너에 넣어준다. )
-    private ProductService productService;
+    //@MockBean // @MockBean 은 컨테이너에 mockito 로 만든 Mock 객체를 넣어주는 역할을 한다. ( ProductService 는 이미 빈으로 관리되고 있다. 빈에 적용하면, ProductService 대신 ProductService Mock 객체를 대신 컨테이너에 넣어준다. )
+    //private ProductService productService;
 
     /**
      * 컨트롤러 테스트
