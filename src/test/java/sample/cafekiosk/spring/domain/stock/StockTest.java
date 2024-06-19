@@ -36,7 +36,6 @@ class StockTest {
         assertThat(stock.getQuantity()).isZero();
     }
 
-
     @DisplayName("재고보다 많은 수의 수량으로 차감 시도하는 경우 예외가 발생한다.")
     @Test
     public void deductQuantity2() throws Exception {

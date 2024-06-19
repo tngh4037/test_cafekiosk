@@ -45,9 +45,10 @@ class OrderServiceTest {
 
     @AfterEach
     void tearDown() {
-        orderProductRepository.deleteAllInBatch();
+        orderProductRepository.deleteAllInBatch(); // 테스트에서는 Product 와 Order 만 사용하지만, 내부적으로 관계맺고 있는 테이블도 cleansing 해주어야 한다. (외래키를 가지고있는 테이블(OrderProduct)을 먼저 지워야 상품과 주문테이블의 데이터를 지울 수 있다)
         productRepository.deleteAllInBatch();
         orderRepository.deleteAllInBatch();
+
         stockRepository.deleteAllInBatch();
     }
 

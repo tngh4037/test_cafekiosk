@@ -14,6 +14,7 @@ public enum ProductType {
 
     private final String text;
 
+    // 재고가 있는 유형의 상품인지 체크
     public static boolean containsStockType(ProductType type) {
         return List.of(BOTTLE, BAKERY).contains(type);
     }

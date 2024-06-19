@@ -35,3 +35,6 @@ public class Product extends BaseEntity {
         this.price = price;
     }
 }
+
+// 참고)
+// 상품(Product) 입장에서 내가 어떤 주문에 속해있는지를 알 필요는 없다. 따라서 OrderProduct 와 양방향으로 설정하진 않았다.

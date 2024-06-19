@@ -22,7 +22,7 @@ import static org.mockito.Mockito.times;
 class MailServiceTest {
 
     @Mock
-    // @Spy // 일부만 stubbing 하고, 나머지는 실제 객체가 그대로 동작하도록 하고자 할 때
+    // @Spy // 일부만 stubbing 하고, 나머지는 실제 객체가 그대로 동작하도록 하고자 할 때 (= 기능중에 스파이가 있다.)
     private MailSendClient mailSendClient;
 
     @Mock
