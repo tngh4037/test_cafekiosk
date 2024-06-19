@@ -30,7 +30,7 @@ public class CafeKiosk {
 
     // 요구사항 추가: 한 종류의 음료 여러 잔을 한 번에 담을 수 있어야 한다.
     public void add(Beverage beverage, int count) {
-        if (count < 0) {
+        if (count <= 0) {
             throw new IllegalArgumentException("음료는 1잔 이상 주문하실 수 있습니다.");
         }
         for (int i = 0; i < count; i++) {

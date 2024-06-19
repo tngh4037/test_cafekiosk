@@ -55,21 +55,21 @@ class StockTest {
     }
 
     // dynamicTest 형태)
-    @DisplayName("")
-    @TestFactory // @Test 대신 @TestFactory 를 선언한다.
-    Collection<DynamicTest> dynamicTest() { // 리턴 값으로 Collection, Stream 등 Iterable 한 것들을 던지면 된다.
-        // given
-        // 공유 환경 구성
-
-        return List.of( // List 형태로 DynamicTest 를 단계별로 던지면서, 단계별로 일련의 시나리오를 수행하고 싶은 경우 ( 단계별로 행위와 검증을 수행하고 싶은 경우 )
-                DynamicTest.dynamicTest("", () -> {
-
-                }),
-                DynamicTest.dynamicTest("", () -> {
-
-                })
-        );
-    }
+    // @DisplayName("")
+    // @TestFactory // @Test 대신 @TestFactory 를 선언한다.
+    // Collection<DynamicTest> dynamicTest() { // 리턴 값으로 Collection, Stream 등 Iterable 한 것들을 던지면 된다.
+    //     // given
+    //     // 공유 환경 구성
+    //
+    //     return List.of( // List 형태로 DynamicTest 를 단계별로 던지면서, 단계별로 일련의 시나리오를 수행하고 싶은 경우 ( 단계별로 행위와 검증을 수행하고 싶은 경우 )
+    //             DynamicTest.dynamicTest("", () -> {
+    //
+    //             }),
+    //             DynamicTest.dynamicTest("", () -> {
+    //
+    //             })
+    //     );
+    // }
 
     // dynamicTest 예시)
     @DisplayName("재고 차감 시나리오")
