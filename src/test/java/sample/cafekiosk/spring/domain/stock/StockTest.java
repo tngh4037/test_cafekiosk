@@ -57,7 +57,7 @@ class StockTest {
     // dynamicTest 형태)
     // @DisplayName("")
     // @TestFactory // @Test 대신 @TestFactory 를 선언한다.
-    // Collection<DynamicTest> dynamicTest() { // 리턴 값으로 Collection, Stream 등 Iterable 한 것들을 던지면 된다.
+    // Collection<DynamicTest> dynamicTest() { // 리턴 값으로 Collection, Stream 등 Iterable 한 타입으로 DynamicTest 를 던져야 한다.
     //     // given
     //     // 공유 환경 구성
     //
