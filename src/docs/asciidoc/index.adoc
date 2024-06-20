@@ -1,0 +1,24 @@
+// 코드 조각들을 합쳐서 문서로 만들기 위한 작업
+
+ifndef::snippets[]
+:snippets: ../../build/generated-snippets
+endif::[]
+= CafeKiosk REST API 문서
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+[[Product-API]]
+== Product API
+
+include::api/product/product.adoc[]
+
+
+// 참고)
+// html 파일은 Rest Docs 에서 사전에 정의한 경로에 내가 작성한 adoc 문서를 바탕으로 html 파일을 생성해 준다.
+// (Gradle 기준 src/docs/asciidoc/*.adoc 경로에 있는 파일 전체를 대상으로 한다)
+
+// - https://ppaksang.tistory.com/39
